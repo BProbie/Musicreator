@@ -3,26 +3,9 @@ package com.probie.musicreator.System.Interface;
 import java.awt.*;
 import java.io.File;
 import javax.sound.midi.*;
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
 import java.io.IOException;
-import java.net.URI;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.ShortBuffer;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
-
-import be.tarsos.dsp.AudioDispatcher;
-import be.tarsos.dsp.AudioEvent;
-import be.tarsos.dsp.AudioProcessor;
-import be.tarsos.dsp.io.TarsosDSPAudioFormat;
-import be.tarsos.dsp.io.jvm.AudioDispatcherFactory;
-import be.tarsos.dsp.io.jvm.JVMAudioInputStream;
-import be.tarsos.dsp.pitch.PitchDetectionHandler;
-import be.tarsos.dsp.pitch.PitchProcessor;
 import com.probie.musicreator.Musicreator.Musicreator;
 import com.probie.musicreator.Musicreator.MusicreatorData;
 

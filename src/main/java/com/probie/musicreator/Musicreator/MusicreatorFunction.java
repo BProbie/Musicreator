@@ -6,7 +6,11 @@ import javax.sound.midi.*;
 import javafx.application.Platform;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
+import com.probie.musicreator.Config.RenewConfig;
+import com.probie.musicreator.System.ComputerSystem;
 import com.probie.musicreator.Musicreator.Interface.IMusicreatorFunction;
+
+import java.io.File;
 
 @Data
 public class MusicreatorFunction implements IMusicreatorFunction {
@@ -43,6 +47,22 @@ public class MusicreatorFunction implements IMusicreatorFunction {
         } catch (InterruptedException interruptedException) {
             throw new RuntimeException(interruptedException);
         }
+    }
+
+    @Override
+    public boolean checkRenew() {
+        return Double.parseDouble(String.valueOf(RenewConfig.getINSTANCE().getLocalRemoteDB().get("VERSION", Musicreator.getINSTANCE().getVERSION()))) > Double.parseDouble(Musicreator.getINSTANCE().getVERSION());
+    }
+
+    @Override
+    public boolean downloadRenew() {
+        String command = "cmd /c" + " "
+                + musicreator.getJavaFilePath().get() + File.separator + "bin" + File.separator + "java" + " " + "-jar" + " "
+                + musicreator.getRenewLocalFilePath().get() + File.separator + musicreator.getRenewLocalFileName().get() + " "
+                + musicreator.getMusicreatorUri().get() + " "
+                + musicreator.getMusicreatorLocalFilePath().get() + File.separator + musicreator.getMusicreatorLocalFileName().get() + " "
+                + musicreator.getAutoOpenRenew().get();
+        return ComputerSystem.getINSTANCE().runCommand(command) == 0;
     }
 
     @Override

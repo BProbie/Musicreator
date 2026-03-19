@@ -1,1 +1,3 @@
-# 轻量化架构 + 微服务框架 + 音频系列算法 + 游戏工具开发 = 尝试
+# 音频文件生成MC函数
+# 预先测试版：目前只开放1.12.2版本
+# 下载地址：https://github.com/BProbie/Musicreator/releases/tag/1.0

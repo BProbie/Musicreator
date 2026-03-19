@@ -1,14 +1,13 @@
 module com.probie.musicreator {
 
+    requires EasyDB;
+    requires okhttp3;
     requires javafx.fxml;
+    requires java.desktop;
+    requires jdk.httpserver;
     requires javafx.controls;
 
-    requires java.desktop;
-
     requires static lombok;
-    requires EasyDB;
-    requires TarsosDSP.core;
-    requires TarsosDSP.jvm;
 
     exports com.probie.musicreator;
 

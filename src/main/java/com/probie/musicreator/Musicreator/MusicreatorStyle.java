@@ -1,12 +1,10 @@
 package com.probie.musicreator.Musicreator;
 
-import javafx.application.Platform;
-import javafx.scene.control.ScrollPane;
 import lombok.Data;
-import java.io.File;
 import javafx.geometry.Pos;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
+import javafx.scene.control.ScrollPane;
 import com.probie.musicreator.Musicreator.Interface.IMusicreatorStyle;
 
 @Data
@@ -86,7 +84,7 @@ public class MusicreatorStyle implements IMusicreatorStyle {
         musicreatorElement.getMusicreatorChooseFileHBox().setSpacing(musicreatorData.getOffset().get());
         musicreatorElement.getMusicreatorChooseFileHBox().setAlignment(Pos.CENTER);
 
-        musicreatorElement.getMusicreatorChooseFileChooseFileButton().setText("浏览");
+        musicreatorElement.getMusicreatorChooseFileChooseFileButton().setText("选择音频文件");
         musicreatorElement.getMusicreatorChooseFileChooseFileButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
 
         musicreatorElement.getMusicreatorChooseFileShowChosenFileLabel().setText(musicreator.getChosenFilePath().get());
@@ -102,7 +100,7 @@ public class MusicreatorStyle implements IMusicreatorStyle {
         musicreatorElement.getMusicreatorSpawnFileHBox().setAlignment(Pos.CENTER);
         musicreatorElement.getMusicreatorSpawnFileHBox().setVisible(false);
 
-        musicreatorElement.getMusicreatorSpawnFileChooseFileButton().setText("浏览");
+        musicreatorElement.getMusicreatorSpawnFileChooseFileButton().setText("选择函数文件");
         musicreatorElement.getMusicreatorSpawnFileChooseFileButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
 
         musicreatorElement.getMusicreatorSpawnFileShowChosenFileTextField().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
@@ -117,41 +115,90 @@ public class MusicreatorStyle implements IMusicreatorStyle {
 
     @Override
     public void createParamStyle() {
-
+        musicreatorElement.getParamVBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getParamVBox().setAlignment(Pos.CENTER);
     }
 
     @Override
     public void createSettingStyle() {
-
+        musicreatorElement.getSettingVBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getSettingVBox().setAlignment(Pos.CENTER);
     }
 
     @Override
     public void createRenewStyle() {
         musicreatorElement.getRenewVBox().setSpacing(musicreatorData.getOffset().get());
 
-        musicreatorElement.getRenewCheckRenewVBox().setSpacing(musicreatorData.getOffset().get());
-        musicreatorElement.getRenewCheckRenewVBox().setAlignment(Pos.CENTER);
+        musicreatorElement.getRenewCheckRenewHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewCheckRenewHBox().setAlignment(Pos.CENTER);
 
         musicreatorElement.getRenewCheckRenewButton().setText("检查更新");
         musicreatorElement.getRenewCheckRenewButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
 
-        musicreatorElement.getRenewDownloadRenewVBox().setSpacing(musicreatorData.getOffset().get());
-        musicreatorElement.getRenewDownloadRenewVBox().setAlignment(Pos.CENTER);
-        musicreatorElement.getRenewDownloadRenewVBox().setVisible(false);
+        musicreatorElement.getRenewShowRenewHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewShowRenewHBox().setAlignment(Pos.CENTER);
+        musicreatorElement.getRenewShowRenewHBox().setVisible(false);
 
-        musicreatorElement.getRenewDownloadRenewScrollPane().maxWidthProperty().bind(musicreatorElement.getRenewDownloadRenewVBox().widthProperty().divide(2.0));
-        musicreatorElement.getRenewDownloadRenewScrollPane().setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        musicreatorElement.getRenewDownloadRenewScrollPane().setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        musicreatorElement.getRenewShowRenewScrollPane().maxWidthProperty().bind(musicreatorElement.getRenewShowRenewHBox().widthProperty().divide(2.0));
+        musicreatorElement.getRenewShowRenewScrollPane().setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        musicreatorElement.getRenewShowRenewScrollPane().setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
-        musicreatorElement.getRenewDownloadRenewTextArea().prefWidthProperty().bind(musicreatorElement.getRenewDownloadRenewScrollPane().widthProperty());
-        musicreatorElement.getRenewDownloadRenewTextArea().setStyle("-fx-text-alignment: center;");
-        musicreatorElement.getRenewDownloadRenewTextArea().setWrapText(true);
-        musicreatorElement.getRenewDownloadRenewTextArea().setEditable(true);
-        musicreatorElement.getRenewDownloadRenewTextArea().clear();
-        musicreatorElement.getRenewDownloadRenewTextArea().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+        musicreatorElement.getRenewShowRenewTextArea().prefWidthProperty().bind(musicreatorElement.getRenewShowRenewScrollPane().widthProperty());
+        musicreatorElement.getRenewShowRenewTextArea().setStyle("-fx-text-alignment: center !important;");
+        musicreatorElement.getRenewShowRenewTextArea().setWrapText(true);
+        musicreatorElement.getRenewShowRenewTextArea().setEditable(true);
+        musicreatorElement.getRenewShowRenewTextArea().clear();
+        musicreatorElement.getRenewShowRenewTextArea().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+
+        musicreatorElement.getRenewDownloadRenewHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewDownloadRenewHBox().setAlignment(Pos.CENTER);
+        musicreatorElement.getRenewDownloadRenewHBox().setVisible(false);
 
         musicreatorElement.getRenewDownloadButton().setText("立即更新");
         musicreatorElement.getRenewDownloadButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+
+        musicreatorElement.getRenewAutoRenewHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewAutoRenewHBox().setAlignment(Pos.CENTER);
+
+        musicreatorElement.getRenewAutoRenewCheckHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewAutoRenewCheckHBox().setAlignment(Pos.CENTER);
+
+        musicreatorElement.getRenewAutoRenewCheckLabel().setText("自动检查更新");
+        musicreatorElement.getRenewAutoRenewCheckLabel().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+
+        musicreatorElement.getRenewAutoRenewCheckOnButton().setText("开");
+        musicreatorElement.getRenewAutoRenewCheckOnButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+        musicreatorElement.getRenewAutoRenewCheckOnButton().setToggleGroup(musicreatorElement.getRenewAutoRenewCheckGroup());
+
+        musicreatorElement.getRenewAutoRenewCheckOffButton().setText("关");
+        musicreatorElement.getRenewAutoRenewCheckOffButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+        musicreatorElement.getRenewAutoRenewCheckOffButton().setToggleGroup(musicreatorElement.getRenewAutoRenewCheckGroup());
+
+        if (musicreator.getAutoCheckRenew().get()) {
+            musicreatorElement.getRenewAutoRenewCheckOnButton().setSelected(true);
+        } else {
+            musicreatorElement.getRenewAutoRenewCheckOffButton().setSelected(true);
+        }
+
+        musicreatorElement.getRenewAutoRenewDownloadHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewAutoRenewDownloadHBox().setAlignment(Pos.CENTER);
+
+        musicreatorElement.getRenewAutoRenewDownloadLabel().setText("自动下载软件");
+        musicreatorElement.getRenewAutoRenewDownloadLabel().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+
+        musicreatorElement.getRenewAutoRenewDownloadOnButton().setText("开");
+        musicreatorElement.getRenewAutoRenewDownloadOnButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+        musicreatorElement.getRenewAutoRenewDownloadOnButton().setToggleGroup(musicreatorElement.getRenewAutoRenewDownloadGroup());
+
+        musicreatorElement.getRenewAutoRenewDownloadOffButton().setText("关");
+        musicreatorElement.getRenewAutoRenewDownloadOffButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+        musicreatorElement.getRenewAutoRenewDownloadOffButton().setToggleGroup(musicreatorElement.getRenewAutoRenewDownloadGroup());
+
+        if (musicreator.getAutoDownloadRenew().get()) {
+            musicreatorElement.getRenewAutoRenewDownloadOnButton().setSelected(true);
+        } else {
+            musicreatorElement.getRenewAutoRenewDownloadOffButton().setSelected(true);
+        }
     }
 
 }

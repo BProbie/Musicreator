@@ -1,14 +1,16 @@
 package com.probie.musicreator.Musicreator;
 
-import javafx.scene.control.*;
 import lombok.Data;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.scene.layout.BorderPane;
 import com.probie.musicreator.Musicreator.Interface.IMusicreatorElement;
+
+import java.io.File;
 
 @Data
 public class MusicreatorElement implements IMusicreatorElement {
@@ -67,22 +69,40 @@ public class MusicreatorElement implements IMusicreatorElement {
      * param
      * */
     private VBox paramVBox = new VBox();
+    private Label paramLabel = new Label(musicreator.getConfigFilePath().get() + File.separator + musicreator.getParamConfigFileName().get());
 
     /**
      * setting
      * */
     private VBox settingVBox = new VBox();
+    private Label settingLabel = new Label(musicreator.getConfigFilePath().get() + File.separator + musicreator.getSettingConfigFileName().get());
 
     /**
      * renew
      * */
     private VBox renewVBox = new VBox();
-    private VBox renewCheckRenewVBox = new VBox();
+
+    private HBox renewCheckRenewHBox = new HBox();
     private Button renewCheckRenewButton = new Button();
-    private VBox renewDownloadRenewVBox = new VBox();
-    private ScrollPane renewDownloadRenewScrollPane = new ScrollPane();
-    private TextArea renewDownloadRenewTextArea = new TextArea();
+
+    private HBox renewShowRenewHBox = new HBox();
+    private ScrollPane renewShowRenewScrollPane = new ScrollPane();
+    private TextArea renewShowRenewTextArea = new TextArea();
+
+    private HBox renewDownloadRenewHBox = new HBox();
     private Button renewDownloadButton = new Button();
+
+    private HBox renewAutoRenewHBox = new HBox();
+    private HBox renewAutoRenewCheckHBox = new HBox();
+    private Label renewAutoRenewCheckLabel = new Label();
+    private RadioButton renewAutoRenewCheckOnButton = new RadioButton();
+    private RadioButton renewAutoRenewCheckOffButton = new RadioButton();
+    private ToggleGroup renewAutoRenewCheckGroup = new ToggleGroup();
+    private HBox renewAutoRenewDownloadHBox = new HBox();
+    private Label renewAutoRenewDownloadLabel = new Label();
+    private RadioButton renewAutoRenewDownloadOnButton = new RadioButton();
+    private RadioButton renewAutoRenewDownloadOffButton = new RadioButton();
+    private ToggleGroup renewAutoRenewDownloadGroup = new ToggleGroup();
 
     @Override
     public void createElement(Stage stage) {
@@ -135,22 +155,28 @@ public class MusicreatorElement implements IMusicreatorElement {
 
     @Override
     public void createParamElement() {
-
+        paramVBox.getChildren().addAll(paramLabel);
     }
 
     @Override
     public void createSettingElement() {
-
+        settingVBox.getChildren().addAll(settingLabel);
     }
 
     @Override
     public void createRenewElement() {
-        renewCheckRenewVBox.getChildren().addAll(renewCheckRenewButton);
+        renewCheckRenewHBox.getChildren().addAll(renewCheckRenewButton);
 
-        renewDownloadRenewScrollPane.setContent(renewDownloadRenewTextArea);
-        renewDownloadRenewVBox.getChildren().addAll(renewDownloadRenewScrollPane, renewDownloadButton);
+        renewShowRenewScrollPane.setContent(renewShowRenewTextArea);
+        renewShowRenewHBox.getChildren().addAll(renewShowRenewScrollPane, renewDownloadButton);
 
-        renewVBox.getChildren().addAll(renewCheckRenewVBox, renewDownloadRenewVBox);
+        renewDownloadRenewHBox.getChildren().addAll(renewDownloadButton);
+
+        renewAutoRenewCheckHBox.getChildren().addAll(renewAutoRenewCheckLabel, renewAutoRenewCheckOnButton, renewAutoRenewCheckOffButton);
+        renewAutoRenewDownloadHBox.getChildren().addAll(renewAutoRenewDownloadLabel, renewAutoRenewDownloadOnButton, renewAutoRenewDownloadOffButton);
+        renewAutoRenewHBox.getChildren().addAll(renewAutoRenewCheckHBox, renewAutoRenewDownloadHBox);
+
+        renewVBox.getChildren().addAll(renewCheckRenewHBox, renewShowRenewHBox, renewDownloadRenewHBox, renewAutoRenewHBox);
     }
 
 }
