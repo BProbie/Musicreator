@@ -18,7 +18,7 @@ public class RenewConfig implements IRenewConfig {
         }
         if (INSTANCE.getLocalRemoteDB() == null) {
             INSTANCE.setLocalRemoteDB(EasyDB.getInstance().getLocalDatabaseFactory().buildLocalRemoteDB(Musicreator.getINSTANCE().getRenewConfigUri().get()));
-            INSTANCE.getLocalRemoteDB().setFullFilePath(Musicreator.getINSTANCE().getConfigFilePath().get() + File.separator + Musicreator.getINSTANCE().getSettingConfigFileName().get());
+            INSTANCE.getLocalRemoteDB().setFullFilePath(Musicreator.getINSTANCE().getConfigFilePath().get() + File.separator + Musicreator.getINSTANCE().getRenewConfigFileName().get());
             INSTANCE.getLocalRemoteDB().setIsAutoCommit(false);
             INSTANCE.getLocalRemoteDB().downloadDatabase(true);
             INSTANCE.getLocalRemoteDB().connect();
