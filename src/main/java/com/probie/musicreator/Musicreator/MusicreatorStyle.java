@@ -1,5 +1,7 @@
 package com.probie.musicreator.Musicreator;
 
+import javafx.application.Platform;
+import javafx.scene.control.ScrollPane;
 import lombok.Data;
 import java.io.File;
 import javafx.geometry.Pos;
@@ -84,18 +86,33 @@ public class MusicreatorStyle implements IMusicreatorStyle {
         musicreatorElement.getMusicreatorChooseFileHBox().setSpacing(musicreatorData.getOffset().get());
         musicreatorElement.getMusicreatorChooseFileHBox().setAlignment(Pos.CENTER);
 
-        musicreatorElement.getMusicreatorChooseFileButton().setText("浏览");
-        musicreatorElement.getMusicreatorChooseFileButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+        musicreatorElement.getMusicreatorChooseFileChooseFileButton().setText("浏览");
+        musicreatorElement.getMusicreatorChooseFileChooseFileButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
 
-        musicreatorElement.getMusicreatorChooseFileLabel().setText(musicreator.getChosenFilePath().get());
-        musicreatorElement.getMusicreatorChooseFileLabel().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+        musicreatorElement.getMusicreatorChooseFileShowChosenFileLabel().setText(musicreator.getChosenFilePath().get());
+        musicreatorElement.getMusicreatorChooseFileShowChosenFileLabel().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
 
         musicreatorElement.getMusicreatorChooseFileFileChooser().getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("ALL", "*.*"),
                 new FileChooser.ExtensionFilter("MID", "*.mid"),
                 new FileChooser.ExtensionFilter("MP3", "*.mp3")
         );
-        musicreatorElement.getMusicreatorChooseFileFileChooser().setInitialDirectory(new File(musicreatorElement.getMusicreatorChooseFileLabel().getText()));
+
+        musicreatorElement.getMusicreatorSpawnFileHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getMusicreatorSpawnFileHBox().setAlignment(Pos.CENTER);
+        musicreatorElement.getMusicreatorSpawnFileHBox().setVisible(false);
+
+        musicreatorElement.getMusicreatorSpawnFileChooseFileButton().setText("浏览");
+        musicreatorElement.getMusicreatorSpawnFileChooseFileButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+
+        musicreatorElement.getMusicreatorSpawnFileShowChosenFileTextField().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+
+        musicreatorElement.getMusicreatorSpawnFileSpawnFileButton().setText("生成");
+        musicreatorElement.getMusicreatorSpawnFileSpawnFileButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+
+        musicreatorElement.getMusicreatorSpawnFileFileChooser().getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("MCFUNCTION", "*.mcfunction")
+        );
     }
 
     @Override
@@ -110,7 +127,31 @@ public class MusicreatorStyle implements IMusicreatorStyle {
 
     @Override
     public void createRenewStyle() {
+        musicreatorElement.getRenewVBox().setSpacing(musicreatorData.getOffset().get());
 
+        musicreatorElement.getRenewCheckRenewVBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewCheckRenewVBox().setAlignment(Pos.CENTER);
+
+        musicreatorElement.getRenewCheckRenewButton().setText("检查更新");
+        musicreatorElement.getRenewCheckRenewButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+
+        musicreatorElement.getRenewDownloadRenewVBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewDownloadRenewVBox().setAlignment(Pos.CENTER);
+        musicreatorElement.getRenewDownloadRenewVBox().setVisible(false);
+
+        musicreatorElement.getRenewDownloadRenewScrollPane().maxWidthProperty().bind(musicreatorElement.getRenewDownloadRenewVBox().widthProperty().divide(2.0));
+        musicreatorElement.getRenewDownloadRenewScrollPane().setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        musicreatorElement.getRenewDownloadRenewScrollPane().setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+        musicreatorElement.getRenewDownloadRenewTextArea().prefWidthProperty().bind(musicreatorElement.getRenewDownloadRenewScrollPane().widthProperty());
+        musicreatorElement.getRenewDownloadRenewTextArea().setStyle("-fx-text-alignment: center;");
+        musicreatorElement.getRenewDownloadRenewTextArea().setWrapText(true);
+        musicreatorElement.getRenewDownloadRenewTextArea().setEditable(true);
+        musicreatorElement.getRenewDownloadRenewTextArea().clear();
+        musicreatorElement.getRenewDownloadRenewTextArea().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
+
+        musicreatorElement.getRenewDownloadButton().setText("立即更新");
+        musicreatorElement.getRenewDownloadButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
     }
 
 }

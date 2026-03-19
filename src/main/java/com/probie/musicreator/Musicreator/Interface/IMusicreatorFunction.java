@@ -24,8 +24,9 @@ public interface IMusicreatorFunction {
     void scrollToBottom(ScrollPane scrollPane);
 
     /**
-     * 等待一段时间
+     * 等待时间
      * */
     void waitASecond();
+    void waitMoreSecond();
 
 }

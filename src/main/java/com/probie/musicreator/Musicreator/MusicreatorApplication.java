@@ -1,14 +1,13 @@
 package com.probie.musicreator.Musicreator;
 
-import com.probie.musicreator.Config.ConfigConfig;
 import lombok.Data;
-import java.io.Closeable;
 import java.io.File;
-import java.util.function.Supplier;
-
+import java.io.Closeable;
 import javafx.stage.Stage;
 import javafx.application.Platform;
 import javafx.application.Application;
+import com.probie.musicreator.Config.ParamConfig;
+import com.probie.musicreator.Config.SettingConfig;
 import com.probie.musicreator.Musicreator.Interface.IMusicreatorApplication;
 
 @Data
@@ -65,20 +64,28 @@ public class MusicreatorApplication extends Application implements IMusicreatorA
     @Override
     public void beforeStop() {
         /// 保存配置
-        ConfigConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyMusicreatorFilePath(), Musicreator.getINSTANCE().getMusicreatorFilePath().get());
-        ConfigConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyJavaFilePath(), Musicreator.getINSTANCE().getJavaFilePath().get());
-        ConfigConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyLibFilePath(), Musicreator.getINSTANCE().getLibFilePath().get());
-        ConfigConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyConfigFilePath(), Musicreator.getINSTANCE().getConfigFilePath().get());
+        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyRenewConfigUri(), Musicreator.getINSTANCE().getRenewConfigUri().get());
+        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyMusicreatorUri(), Musicreator.getINSTANCE().getMusicreatorUri().get());
 
-        ConfigConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyConfigConfigFileName(), Musicreator.getINSTANCE().getConfigConfigFileName().get());
-        ConfigConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyChosenFilePath(), Musicreator.getINSTANCE().getChosenFilePath().get());
+        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyMusicreatorFilePath(), Musicreator.getINSTANCE().getMusicreatorFilePath().get());
+        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyJavaFilePath(), Musicreator.getINSTANCE().getJavaFilePath().get());
+        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyLibFilePath(), Musicreator.getINSTANCE().getLibFilePath().get());
+        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyConfigFilePath(), Musicreator.getINSTANCE().getConfigFilePath().get());
 
-        ConfigConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyBanChannel(), Musicreator.getINSTANCE().getBanChannel().get());
+        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeySettingConfigFileName(), Musicreator.getINSTANCE().getSettingConfigFileName().get());
+        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyParamConfigFileName(), Musicreator.getINSTANCE().getParamConfigFileName().get());
+        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyRenewConfigFileName(), Musicreator.getINSTANCE().getRenewConfigFileName().get());
+        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyChosenFilePath(), Musicreator.getINSTANCE().getChosenFilePath().get());
+        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeySpawnFilePath(), Musicreator.getINSTANCE().getSpawnFilePath().get());
+
+        ParamConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyBanChannel(), Musicreator.getINSTANCE().getBanChannel().get());
 
         if (!new File(Musicreator.getINSTANCE().getConfigFilePath().get()).exists()) {
             new File(Musicreator.getINSTANCE().getConfigFilePath().get()).mkdirs();
         }
-        ConfigConfig.getINSTANCE().getLocalDB().commit();
+
+        SettingConfig.getINSTANCE().getLocalDB().commit();
+        ParamConfig.getINSTANCE().getLocalDB().commit();
     }
 
     @Override

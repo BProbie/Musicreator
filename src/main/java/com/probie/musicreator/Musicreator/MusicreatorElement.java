@@ -1,13 +1,12 @@
 package com.probie.musicreator.Musicreator;
 
+import javafx.scene.control.*;
 import lombok.Data;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import com.probie.musicreator.Musicreator.Interface.IMusicreatorElement;
 
@@ -54,9 +53,15 @@ public class MusicreatorElement implements IMusicreatorElement {
      * */
     private VBox musicreatorVBox = new VBox();
     private HBox musicreatorChooseFileHBox = new HBox();
-    private Button musicreatorChooseFileButton = new Button();
-    private Label musicreatorChooseFileLabel = new Label();
+    private Button musicreatorChooseFileChooseFileButton = new Button();
+    private Label musicreatorChooseFileShowChosenFileLabel = new Label();
     private FileChooser musicreatorChooseFileFileChooser = new FileChooser();
+
+    private HBox musicreatorSpawnFileHBox = new HBox();
+    private Button musicreatorSpawnFileChooseFileButton = new Button();
+    private TextField musicreatorSpawnFileShowChosenFileTextField = new TextField();
+    private Button musicreatorSpawnFileSpawnFileButton = new Button();
+    private FileChooser musicreatorSpawnFileFileChooser = new FileChooser();
 
     /**
      * param
@@ -72,6 +77,12 @@ public class MusicreatorElement implements IMusicreatorElement {
      * renew
      * */
     private VBox renewVBox = new VBox();
+    private VBox renewCheckRenewVBox = new VBox();
+    private Button renewCheckRenewButton = new Button();
+    private VBox renewDownloadRenewVBox = new VBox();
+    private ScrollPane renewDownloadRenewScrollPane = new ScrollPane();
+    private TextArea renewDownloadRenewTextArea = new TextArea();
+    private Button renewDownloadButton = new Button();
 
     @Override
     public void createElement(Stage stage) {
@@ -115,9 +126,11 @@ public class MusicreatorElement implements IMusicreatorElement {
 
     @Override
     public void createMusicreatorElement() {
-        musicreatorChooseFileHBox.getChildren().addAll(musicreatorChooseFileButton, musicreatorChooseFileLabel);
+        musicreatorChooseFileHBox.getChildren().addAll(musicreatorChooseFileChooseFileButton, musicreatorChooseFileShowChosenFileLabel);
 
-        musicreatorVBox.getChildren().addAll(musicreatorChooseFileHBox);
+        musicreatorSpawnFileHBox.getChildren().addAll(musicreatorSpawnFileChooseFileButton, musicreatorSpawnFileShowChosenFileTextField, musicreatorSpawnFileSpawnFileButton);
+
+        musicreatorVBox.getChildren().addAll(musicreatorChooseFileHBox, musicreatorSpawnFileHBox);
     }
 
     @Override
@@ -132,7 +145,12 @@ public class MusicreatorElement implements IMusicreatorElement {
 
     @Override
     public void createRenewElement() {
+        renewCheckRenewVBox.getChildren().addAll(renewCheckRenewButton);
 
+        renewDownloadRenewScrollPane.setContent(renewDownloadRenewTextArea);
+        renewDownloadRenewVBox.getChildren().addAll(renewDownloadRenewScrollPane, renewDownloadButton);
+
+        renewVBox.getChildren().addAll(renewCheckRenewVBox, renewDownloadRenewVBox);
     }
 
 }

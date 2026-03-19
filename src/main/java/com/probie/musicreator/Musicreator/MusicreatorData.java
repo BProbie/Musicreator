@@ -23,8 +23,8 @@ public class MusicreatorData implements IMusicreatorData {
     private volatile static MusicreatorStyle musicreatorStyle = MusicreatorStyle.getINSTANCE();
     private volatile static MusicreatorEvent musicreatorEvent = MusicreatorEvent.getINSTANCE();
 
-    private Supplier<Integer> stageWidth = () -> 1500;
-    private Supplier<Integer> stageHeight = () -> 800;
+    private Supplier<Integer> stageWidth = () -> 1300;
+    private Supplier<Integer> stageHeight = () -> 700;
 
     private Supplier<Integer> fontSizeLargeLargeLarge = () -> 30;
     private Supplier<Integer> fontSizeLargeLarge = () -> 25;

@@ -14,12 +14,21 @@
         <junit.version>5.12.1</junit.version>
     </properties>
 
-    <!-- jitpack -->
     <repositories>
+
+        <!-- jitpack -->
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+
+        <!-- 0110 -->
+        <repository>
+            <id>be.0110.repo-releases</id>
+            <name>0110.be repository</name>
+            <url>https://mvn.0110.be/releases</url>
+        </repository>
+
     </repositories>
 
     <dependencies>
@@ -36,6 +45,31 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.30</version>
+        </dependency>
+
+        <!-- TarsosDSP 2.5 核心模块 -->
+        <dependency>
+            <groupId>be.tarsos.dsp</groupId>
+            <artifactId>core</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <!-- JVM 特定的 IO 支持 -->
+        <dependency>
+            <groupId>be.tarsos.dsp</groupId>
+            <artifactId>jvm</artifactId>
+            <version>2.5</version>
+        </dependency>
+
+        <!-- MP3 解码支持 -->
+        <dependency>
+            <groupId>com.googlecode.soundlibs</groupId>
+            <artifactId>mp3spi</artifactId>
+            <version>1.9.5.4</version>
+        </dependency>
+        <dependency>
+            <groupId>javazoom</groupId>
+            <artifactId>jlayer</artifactId>
+            <version>1.0.1</version>
         </dependency>
 
         <dependency>

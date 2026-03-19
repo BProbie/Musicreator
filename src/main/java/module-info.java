@@ -7,6 +7,8 @@ module com.probie.musicreator {
 
     requires static lombok;
     requires EasyDB;
+    requires TarsosDSP.core;
+    requires TarsosDSP.jvm;
 
     exports com.probie.musicreator;
 

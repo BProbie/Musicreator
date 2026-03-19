@@ -37,6 +37,15 @@ public class MusicreatorFunction implements IMusicreatorFunction {
     }
 
     @Override
+    public void waitMoreSecond() {
+        try {
+            Thread.sleep(musicreatorData.getDelay().get() * 100L);
+        } catch (InterruptedException interruptedException) {
+            throw new RuntimeException(interruptedException);
+        }
+    }
+
+    @Override
     public void chooseMenu(Node node) {
         if (!musicreatorElement.getRootPaneCenterStageBarVBox().getChildren().contains(node)) {
             musicreatorElement.getRootPaneCenterStageBarVBox().getChildren().clear();
