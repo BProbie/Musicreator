@@ -40,7 +40,7 @@ public interface IMusicreatorFunction {
     /**
      * 等待时间
      * */
-    void waitASecond();
-    void waitMoreSecond();
+    void waitADelay();
+    void waitADelay(int times);
 
 }

@@ -1,6 +1,5 @@
 package com.probie.musicreator.Musicreator;
 
-
 import lombok.Data;
 import java.io.File;
 import java.io.Closeable;
@@ -120,42 +119,7 @@ public class MusicreatorApplication extends Application implements IMusicreatorA
 
     @Override
     public void beforeStop() {
-        /// 保存配置
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyMusicreatorFilePath(), Musicreator.getINSTANCE().getMusicreatorFilePath().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyJavaFilePath(), Musicreator.getINSTANCE().getJavaFilePath().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyLibFilePath(), Musicreator.getINSTANCE().getLibFilePath().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyConfigFilePath(), Musicreator.getINSTANCE().getConfigFilePath().get());
-
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeySettingConfigFileName(), Musicreator.getINSTANCE().getSettingConfigFileName().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyParamConfigFileName(), Musicreator.getINSTANCE().getParamConfigFileName().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyRenewConfigFileName(), Musicreator.getINSTANCE().getRenewConfigFileName().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyChosenFilePath(), Musicreator.getINSTANCE().getChosenFilePath().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeySpawnFilePath(), Musicreator.getINSTANCE().getSpawnFilePath().get());
-
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyRenewConfigUri(), Musicreator.getINSTANCE().getRenewConfigUri().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyMusicreatorUriWin(), Musicreator.getINSTANCE().getMusicreatorUriWin().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyMusicreatorUriLinux(), Musicreator.getINSTANCE().getMusicreatorUriLinux().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyMusicreatorUriMac(), Musicreator.getINSTANCE().getMusicreatorUriMac().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyMusicreatorUriAndroid(), Musicreator.getINSTANCE().getMusicreatorUriAndroid().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyMusicreatorUri(), Musicreator.getINSTANCE().getMusicreatorUri().get());
-
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyRenewLocalFilePath(), Musicreator.getINSTANCE().getRenewLocalFilePath().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyRenewLocalFileName(), Musicreator.getINSTANCE().getRenewLocalFileName().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyMusicreatorLocalFilePath(), Musicreator.getINSTANCE().getMusicreatorLocalFilePath().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyMusicreatorLocalFileName(), Musicreator.getINSTANCE().getMusicreatorLocalFileName().get());
-
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyAutoCheckRenew(), Musicreator.getINSTANCE().getAutoCheckRenew().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyAutoDownloadRenew(), Musicreator.getINSTANCE().getAutoDownloadRenew().get());
-        SettingConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyAutoOpenRenew(), Musicreator.getINSTANCE().getAutoOpenRenew().get());
-
-        ParamConfig.getINSTANCE().getLocalDB().set(Musicreator.getINSTANCE().getKeyBanChannel(), Musicreator.getINSTANCE().getBanChannel().get());
-
-        if (!new File(Musicreator.getINSTANCE().getConfigFilePath().get()).exists()) {
-            new File(Musicreator.getINSTANCE().getConfigFilePath().get()).mkdirs();
-        }
-
-        SettingConfig.getINSTANCE().getLocalDB().commit();
-        ParamConfig.getINSTANCE().getLocalDB().commit();
+        Musicreator.getINSTANCE().close();
     }
 
     @Override

@@ -120,7 +120,7 @@ public class MusicreatorEvent implements IMusicreatorEvent {
                         musicreatorElement.getMusicreatorSpawnFileSpawnFileButton().setText("成功");
                         musicreator.getMusicreatorPool().submit(() -> {
                             musicreatorElement.getMusicreatorSpawnFileSpawnFileButton().setDisable(true);
-                            musicreatorFunction.waitMoreSecond();
+                            musicreatorFunction.waitADelay(100);
                             Platform.runLater(() -> musicreatorElement.getMusicreatorSpawnFileSpawnFileButton().setText(temp));
                             musicreatorElement.getMusicreatorSpawnFileSpawnFileButton().setDisable(false);
                         });
@@ -140,7 +140,7 @@ public class MusicreatorEvent implements IMusicreatorEvent {
                         musicreatorElement.getMusicreatorSpawnFileSpawnFileButton().setText("暂时仅支持.mid格式");
                         musicreator.getMusicreatorPool().submit(() -> {
                             musicreatorElement.getMusicreatorSpawnFileSpawnFileButton().setDisable(true);
-                            for (int i = 0; i < 3; i++) musicreatorFunction.waitMoreSecond();
+                            musicreatorFunction.waitADelay(100);
                             Platform.runLater(() -> musicreatorElement.getMusicreatorSpawnFileSpawnFileButton().setText(temp));
                             musicreatorElement.getMusicreatorSpawnFileSpawnFileButton().setDisable(false);
                             try {

@@ -32,18 +32,14 @@ public class MusicreatorFunction implements IMusicreatorFunction {
     private volatile static MusicreatorEvent musicreatorEvent = MusicreatorEvent.getINSTANCE();
 
     @Override
-    public void waitASecond() {
-        try {
-            Thread.sleep(musicreatorData.getDelay().get());
-        } catch (InterruptedException interruptedException) {
-            throw new RuntimeException(interruptedException);
-        }
+    public void waitADelay() {
+        waitADelay(1);
     }
 
     @Override
-    public void waitMoreSecond() {
+    public void waitADelay(int times) {
         try {
-            Thread.sleep(musicreatorData.getDelay().get() * 100L);
+            Thread.sleep((long) musicreatorData.getDelay().get() * times);
         } catch (InterruptedException interruptedException) {
             throw new RuntimeException(interruptedException);
         }
@@ -106,7 +102,7 @@ public class MusicreatorFunction implements IMusicreatorFunction {
     @Override
     public void scrollToBottom(ScrollPane scrollPane) {
         musicreator.getMusicreatorPool().submit(() -> {
-            musicreatorFunction.waitASecond();
+            musicreatorFunction.waitADelay();
             ScrollBar verticalScrollBar = (ScrollBar) scrollPane.lookup(".scroll-bar:vertical");
             if (verticalScrollBar != null) {
                 Platform.runLater(() -> verticalScrollBar.setValue(verticalScrollBar.getMax()));

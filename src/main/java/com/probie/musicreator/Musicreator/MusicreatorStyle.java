@@ -63,7 +63,7 @@ public class MusicreatorStyle implements IMusicreatorStyle {
 
     @Override
     public void createMenuBarStyle() {
-        musicreatorElement.getRootPaneLeftMenuBarVBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRootPaneLeftMenuBarVBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getRootPaneLeftMenuBarVBox().setAlignment(Pos.CENTER);
 
         musicreatorElement.getRootPaneLeftMenuBarMusicreatorButton().setText("创作");
@@ -78,10 +78,10 @@ public class MusicreatorStyle implements IMusicreatorStyle {
 
     @Override
     public void createMusicreatorStyle() {
-        musicreatorElement.getMusicreatorVBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getMusicreatorVBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getMusicreatorVBox().setAlignment(Pos.CENTER);
 
-        musicreatorElement.getMusicreatorChooseFileHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getMusicreatorChooseFileHBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getMusicreatorChooseFileHBox().setAlignment(Pos.CENTER);
 
         musicreatorElement.getMusicreatorChooseFileChooseFileButton().setText("选择音频文件");
@@ -96,7 +96,7 @@ public class MusicreatorStyle implements IMusicreatorStyle {
                 new FileChooser.ExtensionFilter("MP3", "*.mp3")
         );
 
-        musicreatorElement.getMusicreatorSpawnFileHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getMusicreatorSpawnFileHBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getMusicreatorSpawnFileHBox().setAlignment(Pos.CENTER);
         musicreatorElement.getMusicreatorSpawnFileHBox().setVisible(false);
 
@@ -115,27 +115,27 @@ public class MusicreatorStyle implements IMusicreatorStyle {
 
     @Override
     public void createParamStyle() {
-        musicreatorElement.getParamVBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getParamVBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getParamVBox().setAlignment(Pos.CENTER);
     }
 
     @Override
     public void createSettingStyle() {
-        musicreatorElement.getSettingVBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getSettingVBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getSettingVBox().setAlignment(Pos.CENTER);
     }
 
     @Override
     public void createRenewStyle() {
-        musicreatorElement.getRenewVBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewVBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
 
-        musicreatorElement.getRenewCheckRenewHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewCheckRenewHBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getRenewCheckRenewHBox().setAlignment(Pos.CENTER);
 
         musicreatorElement.getRenewCheckRenewButton().setText("检查更新");
         musicreatorElement.getRenewCheckRenewButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
 
-        musicreatorElement.getRenewShowRenewHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewShowRenewHBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getRenewShowRenewHBox().setAlignment(Pos.CENTER);
         musicreatorElement.getRenewShowRenewHBox().setVisible(false);
 
@@ -144,23 +144,25 @@ public class MusicreatorStyle implements IMusicreatorStyle {
         musicreatorElement.getRenewShowRenewScrollPane().setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         musicreatorElement.getRenewShowRenewTextArea().prefWidthProperty().bind(musicreatorElement.getRenewShowRenewScrollPane().widthProperty());
-        musicreatorElement.getRenewShowRenewTextArea().setStyle("-fx-text-alignment: center !important;");
+        musicreatorElement.getRenewShowRenewTextArea().setStyle("""
+                        -fx-text-alignment: center !important;
+                        """);
         musicreatorElement.getRenewShowRenewTextArea().setWrapText(true);
-        musicreatorElement.getRenewShowRenewTextArea().setEditable(true);
+        musicreatorElement.getRenewShowRenewTextArea().setEditable(false);
         musicreatorElement.getRenewShowRenewTextArea().clear();
         musicreatorElement.getRenewShowRenewTextArea().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
 
-        musicreatorElement.getRenewDownloadRenewHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewDownloadRenewHBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getRenewDownloadRenewHBox().setAlignment(Pos.CENTER);
         musicreatorElement.getRenewDownloadRenewHBox().setVisible(false);
 
         musicreatorElement.getRenewDownloadButton().setText("立即更新");
         musicreatorElement.getRenewDownloadButton().setFont(new Font(musicreatorData.getFontSizeLarge().get()));
 
-        musicreatorElement.getRenewAutoRenewHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewAutoRenewHBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getRenewAutoRenewHBox().setAlignment(Pos.CENTER);
 
-        musicreatorElement.getRenewAutoRenewCheckHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewAutoRenewCheckHBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getRenewAutoRenewCheckHBox().setAlignment(Pos.CENTER);
 
         musicreatorElement.getRenewAutoRenewCheckLabel().setText("自动检查更新");
@@ -180,7 +182,7 @@ public class MusicreatorStyle implements IMusicreatorStyle {
             musicreatorElement.getRenewAutoRenewCheckOffButton().setSelected(true);
         }
 
-        musicreatorElement.getRenewAutoRenewDownloadHBox().setSpacing(musicreatorData.getOffset().get());
+        musicreatorElement.getRenewAutoRenewDownloadHBox().setSpacing(musicreatorData.getSpacingSizeSmall().get());
         musicreatorElement.getRenewAutoRenewDownloadHBox().setAlignment(Pos.CENTER);
 
         musicreatorElement.getRenewAutoRenewDownloadLabel().setText("自动下载软件");
